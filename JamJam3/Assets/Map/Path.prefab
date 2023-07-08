@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7056666554744029388}
   - component: {fileID: 2232950771534782120}
   m_Layer: 0
-  m_Name: DummyBuilding
+  m_Name: Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: b8ec1dbe000a84344a87425e0cd38120, type: 3}
-  m_Color: {r: 0.14901961, g: 0.16470589, b: 0.31764707, a: 1}
+  m_Color: {r: 0.5377358, g: 0.3184052, b: 0.15472585, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
