@@ -10,19 +10,18 @@ public class MapScript : MonoBehaviour
     public GameObject building;
 
     public int numOfBuildings;
-    public Vector2[] buildingLocationArray;
-    public Vector2[] pathLocationArray = new Vector2[42];
+    private Vector2[] buildingLocationArray;
+    private Vector2[] pathLocationArray;
 
     void Start()
     {
         buildingLocationArray = new Vector2[numOfBuildings];
 
-        int counter = 0;
         GameObject[] obj = GameObject.FindGameObjectsWithTag("Path");
-        foreach (GameObject o in obj)
+        pathLocationArray = new Vector2[obj.Length];
+        for (int i = 0; i < obj.Length; i++)
         {
-            buildingLocationArray[counter] = o.transform.position;
-            counter++;
+            buildingLocationArray[i] = obj[i].transform.position;
         }
 
         // spawns building on mouse click location
@@ -37,9 +36,19 @@ public class MapScript : MonoBehaviour
             }*/
 
 
-        void SpawnOject()
+        void SpawnBuilding(GameObject building)
         {
+            var rand = new System.Random();
+            double randx;
+            double randy;
+            int counter = 0;
+            bool found = false;
+            while (found == false && counter<300)
+            {
+                randx = rand.Next(13) - 6.5 + rand.NextDouble();
+                randy = rand.Next(17) - 8.5 + rand.NextDouble();
 
+            }
         }
 
         void CreatePath()
