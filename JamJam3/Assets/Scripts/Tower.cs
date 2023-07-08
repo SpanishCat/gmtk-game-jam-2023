@@ -1,18 +1,31 @@
 using UnityEngine;
 
-public abstract class Tower : MonoBehaviour
+public abstract class Tower : MonoBehaviour, ITower
 {
-    //readonly GameObject towerObject;
     readonly short maxHealth;
     readonly float cooldownSeconds;
     short health;
 
-    public Tower(/*GameObject inTowerObject, */short inMaxHealth, float inCooldown = 0)
+    public Tower(short inMaxHealth, float inCooldown = 0)
     {
-        //towerObject = inTowerObject;
         maxHealth = inMaxHealth;
         cooldownSeconds = inCooldown;
         health = maxHealth;
+    }
+
+    // Abstracts
+    public abstract void Attack();
+    public abstract void Die();
+
+
+    public void Regen()
+    {
+        health = maxHealth;
+    }
+
+    public short GetHealth()
+    {
+        return health;
     }
 
     public short Damage(short damage)
@@ -23,10 +36,5 @@ public abstract class Tower : MonoBehaviour
         if (health == 0) { Die(); }
 
         return health;
-    }
-
-    public void Die()
-    {
-        Debug.Log("Tower destroyed!");
     }
 }
