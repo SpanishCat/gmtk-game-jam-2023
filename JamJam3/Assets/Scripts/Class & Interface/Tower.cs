@@ -5,6 +5,7 @@ public abstract class Tower : MonoBehaviour, ITower
     public /*readonly*/ short maxHealth;
     public /*readonly*/ float cooldownSeconds;
     public short health;
+    public float range = 5;
 
     //public Tower(short inMaxHealth, float inCooldown = 0)
     //{
