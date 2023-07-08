@@ -39,15 +39,12 @@ public class MapScript : MonoBehaviour
         void SpawnBuilding(GameObject building)
         {
             var rand = new System.Random();
-            double randx;
-            double randy;
+            Vector2 vec;
             int counter = 0;
             bool found = false;
             while (found == false && counter<300)
             {
-                randx = rand.Next(13) - 6.5 + rand.NextDouble();
-                randy = rand.Next(17) - 8.5 + rand.NextDouble();
-
+                vec = new Vector2((float)(rand.Next(13) - 6.5 + rand.NextDouble()), (float)(rand.Next(17) - 6.5 + rand.NextDouble()));
             }
         }
 

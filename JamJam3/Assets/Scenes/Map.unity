@@ -938,8 +938,6 @@ MonoBehaviour:
   path: {fileID: 8732325367135250745, guid: 06f82fa755dc2274facd31f386043eb0, type: 3}
   building: {fileID: 8732325367135250745, guid: 883475f89b836424f94e6e4698813ee1, type: 3}
   numOfBuildings: 0
-  buildingLocationArray: []
-  pathLocationArray: []
 --- !u!1001 &466466099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1088,7 +1086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7056666554744029388, guid: 06f82fa755dc2274facd31f386043eb0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 6.49
       objectReference: {fileID: 0}
     - target: {fileID: 7056666554744029388, guid: 06f82fa755dc2274facd31f386043eb0, type: 3}
       propertyPath: m_LocalPosition.z
