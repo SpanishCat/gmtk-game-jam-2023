@@ -9,5 +9,6 @@ public interface ITower
 
     public void Regen();
     public short Damage(short damage);
+    public short GetMaxHealth();
     public short GetHealth();
 }

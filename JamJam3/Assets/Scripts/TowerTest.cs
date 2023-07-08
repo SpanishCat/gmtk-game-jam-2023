@@ -16,5 +16,6 @@ public class TowerTest : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P)) { Instantiate(basicShooter); }
+
     }
 }
