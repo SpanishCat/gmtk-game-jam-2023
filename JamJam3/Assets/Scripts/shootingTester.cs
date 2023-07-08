@@ -23,6 +23,7 @@ public class shootingTester : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (range.IsTouching(collider))//if an enemey is touching the
         {
             Target = collider.transform.position;
