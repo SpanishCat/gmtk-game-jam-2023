@@ -936,7 +936,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: {fileID: 8732325367135250745, guid: 06f82fa755dc2274facd31f386043eb0, type: 3}
-  tower: {fileID: 3944807657086765087, guid: 133d4a5ef68d6524390398804f6e3582, type: 3}
+  tower: {fileID: 0}
+  numOfBuildings: 10
+  minDistFromPath: 2
+  maxDistFromPath: 3
 --- !u!1001 &466466099
 PrefabInstance:
   m_ObjectHideFlags: 0

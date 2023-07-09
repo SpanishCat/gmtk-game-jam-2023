@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Shootable
   - Path
+  - SpawnObstacle
+  - Tower
   layers:
   - Default
   - TransparentFX

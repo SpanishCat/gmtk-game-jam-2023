@@ -5,20 +5,16 @@ public class MapScript : MonoBehaviour
     public GameObject path;
     public GameObject tower;
 
-    private int numOfBuildings = 10;
-    private double minDistFromPath = 1;
-    private double maxDistFromPath = 3;
-    private double minDistFromOthers = 0.5f;
+    public int numOfBuildings;
+    public double minDistFromPath;
+    public double maxDistFromPath;
 
-    private Vector2[] buildingLocationArray;
-    private Vector2[] pathLocationArray;
+    private Vector2[] nodeLocationArray;
 
     void Start()
     {
-        buildingLocationArray = new Vector2[numOfBuildings + 1];
-
         GameObject[] obj = GameObject.FindGameObjectsWithTag("Path");
-        pathLocationArray = new Vector2[obj.Length];
+        nodeLocationArray = new Vector2[obj.Length + numOfBuildings];
         for (int i = 0; i < obj.Length; i++)
         {
             pathLocationArray[i] = obj[i].transform.position;
@@ -44,11 +40,6 @@ public class MapScript : MonoBehaviour
             {
                 if (Vector2.Distance(pathLocationArray[i], locationProposal) <= maxDistFromPath)
                 {
-/*                    for (int j = 0; buildingLocationArray[j] != null; j++)
-                    {
-                        if (Vector2.Distance(buildingLocationArray[j], locationProposal) < minDistFromOthers)
-                            notOverlapping = false;
-                    }*/
                     for (int j = 0; j < pathLocationArray.Length; j++)
                     {
                         if (Vector2.Distance(pathLocationArray[j], locationProposal) < minDistFromPath)
@@ -63,9 +54,5 @@ public class MapScript : MonoBehaviour
             tempCounter++;
         }
         Instantiate(tower, locationProposal, transform.rotation);
-    }
-    void CreatePath()
-    {
-            
     }
 }
