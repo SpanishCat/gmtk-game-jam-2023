@@ -850,7 +850,7 @@ GameObject:
   - component: {fileID: 362668777}
   - component: {fileID: 362668779}
   m_Layer: 0
-  m_Name: Square
+  m_Name: ScriptHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -936,11 +936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: {fileID: 8732325367135250745, guid: 06f82fa755dc2274facd31f386043eb0, type: 3}
-  building: {fileID: 8732325367135250745, guid: 883475f89b836424f94e6e4698813ee1, type: 3}
-  numOfBuildings: 10
-  minDistFromPath: 1
-  maxDistFromPath: 3
-  minDistFromOthers: 0.5
+  tower: {fileID: 3944807657086765087, guid: 133d4a5ef68d6524390398804f6e3582, type: 3}
 --- !u!1001 &466466099
 PrefabInstance:
   m_ObjectHideFlags: 0

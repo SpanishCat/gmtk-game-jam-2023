@@ -1,19 +1,14 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEditor.PlayerSettings;
 
 public class MapScript : MonoBehaviour
 {
     public GameObject path;
-    public GameObject building;
+    public GameObject tower;
 
-    public int numOfBuildings;
-    public double minDistFromPath;
-    public double maxDistFromPath;
-    public double minDistFromOthers;
+    private int numOfBuildings = 10;
+    private double minDistFromPath = 1;
+    private double maxDistFromPath = 3;
+    private double minDistFromOthers = 0.5f;
 
     private Vector2[] buildingLocationArray;
     private Vector2[] pathLocationArray;
@@ -30,10 +25,11 @@ public class MapScript : MonoBehaviour
         }
         for (int i = 0; i < numOfBuildings; i++)
         {
-            SpawnBuilding(building);
+            SpawnTower(tower);
         }
     }
-    void SpawnBuilding(GameObject building)
+
+    void SpawnTower(GameObject tower)
     {
         var rand = new System.Random();
         Vector2 locationProposal = new Vector2(0, 0);
@@ -66,7 +62,7 @@ public class MapScript : MonoBehaviour
             }
             tempCounter++;
         }
-        Instantiate(building, locationProposal, transform.rotation);
+        Instantiate(tower, locationProposal, transform.rotation);
     }
     void CreatePath()
     {
