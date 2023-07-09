@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class navAattack : MonoBehaviour
 {
@@ -12,13 +9,12 @@ public class navAattack : MonoBehaviour
     private bool flag;
     private Tower Turret;
     
-    // Start is called before the first frame update
+
     void Start()
     {
         target = wayPoints.points[0];
     }
 
-    // Update is called once per frame
     void Update()
     {
         GameObject[] targetsOnMap = GameObject.FindGameObjectsWithTag("Tower");
@@ -40,7 +36,7 @@ public class navAattack : MonoBehaviour
         if (Vector3.Distance(transform.position, target.position) <= 0.2f && flag)
             getNextWayPoint();
         else
-            Attack(Turret,soldierScript.attackDamage);
+            Attack(Turret, Soldier.attackDamage);
 
     }
     void getNextWayPoint()

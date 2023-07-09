@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class bomberScript : soldierScript
+public class Bomber : Soldier
 {
     // Start is called before the first frame update
     void Start()

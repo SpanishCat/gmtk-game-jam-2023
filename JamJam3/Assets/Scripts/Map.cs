@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MapScript : MonoBehaviour
+public class Map : MonoBehaviour
 {
     public GameObject path;
     public GameObject tower;
