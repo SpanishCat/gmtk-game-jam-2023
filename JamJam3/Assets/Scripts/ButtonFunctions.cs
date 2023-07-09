@@ -39,7 +39,7 @@ public class ButtonFunctions : MonoBehaviour
     {
         Dropdown dropdown = GetComponent<Dropdown>();
 
-        if (dropdown.itemText.text == "Attack Towers")
+        if (dropdown.options[0].text == "Attack Towers")
             SetTarget("Towers");
         else
             SetTarget("Finishline");
@@ -50,5 +50,6 @@ public class ButtonFunctions : MonoBehaviour
         Debug.Log("Sending " + amount + 
             " " + type.name + 
             "s for target: " + target);
+        //Instantiate(type, )
     }
 }
