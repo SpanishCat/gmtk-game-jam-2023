@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.PlayerSettings;
 
 public class MapScript : MonoBehaviour
 {
@@ -10,47 +11,65 @@ public class MapScript : MonoBehaviour
     public GameObject building;
 
     public int numOfBuildings;
+    public double minDistFromPath;
+    public double maxDistFromPath;
+    public double minDistFromOthers;
+
     private Vector2[] buildingLocationArray;
     private Vector2[] pathLocationArray;
 
     void Start()
     {
-        buildingLocationArray = new Vector2[numOfBuildings];
+        buildingLocationArray = new Vector2[numOfBuildings + 1];
 
         GameObject[] obj = GameObject.FindGameObjectsWithTag("Path");
         pathLocationArray = new Vector2[obj.Length];
         for (int i = 0; i < obj.Length; i++)
         {
-            buildingLocationArray[i] = obj[i].transform.position;
+            pathLocationArray[i] = obj[i].transform.position;
         }
-
-        // spawns building on mouse click location
-        /*    void Update()
+        for (int i = 0; i < numOfBuildings; i++)
+        {
+            SpawnBuilding(building);
+        }
+    }
+    void SpawnBuilding(GameObject building)
+    {
+        var rand = new System.Random();
+        Vector2 locationProposal = new Vector2(0, 0);
+        int tempCounter = 0;
+        bool notOnPath = true;
+        bool notOverlapping = true;
+        bool found = false;
+        while (!found && tempCounter < 300)
+        {
+            locationProposal = new Vector2((float)(rand.Next(13) - 6.5 + rand.NextDouble()), (float)(rand.Next(17) - 6.5 + rand.NextDouble()));
+            for (int i = 0; i < pathLocationArray.Length && !found; i++)
             {
-                if(Input.GetMouseButtonDown(0))
+                if (Vector2.Distance(pathLocationArray[i], locationProposal) <= maxDistFromPath)
                 {
-                    Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    pos = new Vector3(pos.x, 0, pos.z);
-                    Instantiate(spawnObject, pos, transform.rotation);
+/*                    for (int j = 0; buildingLocationArray[j] != null; j++)
+                    {
+                        if (Vector2.Distance(buildingLocationArray[j], locationProposal) < minDistFromOthers)
+                            notOverlapping = false;
+                    }*/
+                    for (int j = 0; j < pathLocationArray.Length; j++)
+                    {
+                        if (Vector2.Distance(pathLocationArray[j], locationProposal) < minDistFromPath)
+                            notOnPath = false;
+                    }
+                    if (notOverlapping && notOnPath)
+                        found = true;
+                    notOnPath = true;
+                    notOverlapping = true;
                 }
-            }*/
-
-
-        void SpawnBuilding(GameObject building)
-        {
-            var rand = new System.Random();
-            Vector2 vec;
-            int counter = 0;
-            bool found = false;
-            while (found == false && counter<300)
-            {
-                vec = new Vector2((float)(rand.Next(13) - 6.5 + rand.NextDouble()), (float)(rand.Next(17) - 6.5 + rand.NextDouble()));
             }
+            tempCounter++;
         }
-
-        void CreatePath()
-        {
+        Instantiate(building, locationProposal, transform.rotation);
+    }
+    void CreatePath()
+    {
             
-        }
     }
 }
