@@ -6,7 +6,7 @@ public class Giant : Soldier
     {
       if(gameObject.name == "5Giants")
         {
-            attackDamage = attackDamage * 1.4f;
+            attackDamage += (short) (attackDamage * 1.4f);
         }
     }
 
