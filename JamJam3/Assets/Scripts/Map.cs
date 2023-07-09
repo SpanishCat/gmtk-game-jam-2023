@@ -1,9 +1,10 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Map : MonoBehaviour
 {
     public GameObject path;
-    public GameObject tower;
+    public GameObject[] towers;
 
     private int numOfBuildings = 10;
     private double minDistFromPath = 1;
@@ -25,7 +26,8 @@ public class Map : MonoBehaviour
         }
         for (int i = 0; i < numOfBuildings; i++)
         {
-            SpawnTower(tower);
+            System.Random rand = new();
+            SpawnTower(towers[rand.Next(0, towers.Length)]);
         }
     }
 
@@ -39,7 +41,10 @@ public class Map : MonoBehaviour
         bool found = false;
         while (!found && tempCounter < 300)
         {
-            locationProposal = new Vector2((float)(rand.Next(13) - 6.5 + rand.NextDouble()), (float)(rand.Next(17) - 6.5 + rand.NextDouble()));
+            locationProposal = new Vector2(
+                (float)(rand.Next(13) - 6.5 + rand.NextDouble()),
+                (float)(rand.Next(17) - 6.5 + rand.NextDouble()));
+
             for (int i = 0; i < pathLocationArray.Length && !found; i++)
             {
                 if (Vector2.Distance(pathLocationArray[i], locationProposal) <= maxDistFromPath)
@@ -62,7 +67,11 @@ public class Map : MonoBehaviour
             }
             tempCounter++;
         }
-        Instantiate(tower, locationProposal, transform.rotation);
+
+        Instantiate(
+            tower, 
+            new Vector3(locationProposal.x, locationProposal.y, -0.7f),
+            transform.rotation);
     }
     void CreatePath()
     {
