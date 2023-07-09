@@ -53,7 +53,7 @@ public class ButtonFunctions : MonoBehaviour
         //    " " + type.name + 
         //    "s for target: " + target);
         Instantiate(type,
-            new Vector3(startStone.position.x, startStone.position.y, -0.7f),
+            new Vector3(startStone.position.x, startStone.position.y, 0),
             startStone.rotation);
     }
 }

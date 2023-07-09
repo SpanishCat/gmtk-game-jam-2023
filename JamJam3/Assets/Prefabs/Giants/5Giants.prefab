@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1491436925415767450}
   - component: {fileID: 100556798999397049}
   - component: {fileID: -4967299997246487085}
-  - component: {fileID: -3407905069103769991}
+  - component: {fileID: 5852184769124025337}
   m_Layer: 0
   m_Name: 5Giants
   m_TagString: Shootable
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a2c816ff095cbd4690e12a06cd602f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-3407905069103769991
+--- !u!114 &5852184769124025337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,8 +107,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1707772167420047083}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e94e8a61e02d0f349b1fb7955b493bbe, type: 3}
+  m_Script: {fileID: 11500000, guid: f621ae68460381e488a90169f2c85216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  rangeDetect: 0
