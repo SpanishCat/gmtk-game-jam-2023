@@ -8,7 +8,7 @@ public class counter : MonoBehaviour
 {
     public gameOver gameOver;
     private bool flagger = false;
-    public static float Count = 0;
+    public static int Count = 0;
     // Start is called before the first frame update
     private void OnCollisionEnter(Collision collision)
     {
@@ -37,6 +37,7 @@ public class counter : MonoBehaviour
             }
             if (targetsOnMap.Length == 0 && Count >= 1)
             {
+                gameOver.setUp(Count);
                 SceneManager.LoadScene("winScreen");
             }
         }
