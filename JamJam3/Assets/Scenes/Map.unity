@@ -940,7 +940,7 @@ MonoBehaviour:
   numOfBuildings: 10
   minDistFromPath: 1
   maxDistFromPath: 3
-  minDistFromOthers: 0.5
+  minDistFromOthers: 10
 --- !u!1001 &466466099
 PrefabInstance:
   m_ObjectHideFlags: 0

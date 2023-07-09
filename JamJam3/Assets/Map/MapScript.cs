@@ -48,11 +48,11 @@ public class MapScript : MonoBehaviour
             {
                 if (Vector2.Distance(pathLocationArray[i], locationProposal) <= maxDistFromPath)
                 {
-/*                    for (int j = 0; buildingLocationArray[j] != null; j++)
+                    for (int j = 0; j < buildingLocationArray.Length && buildingLocationArray[j] != null; j++)
                     {
                         if (Vector2.Distance(buildingLocationArray[j], locationProposal) < minDistFromOthers)
                             notOverlapping = false;
-                    }*/
+                    }
                     for (int j = 0; j < pathLocationArray.Length; j++)
                     {
                         if (Vector2.Distance(pathLocationArray[j], locationProposal) < minDistFromPath)
@@ -67,6 +67,14 @@ public class MapScript : MonoBehaviour
             tempCounter++;
         }
         Instantiate(building, locationProposal, transform.rotation);
+        for (int i = 0; i < buildingLocationArray.Length; i++)
+        {
+            if (buildingLocationArray[i] == null)
+            {
+                buildingLocationArray[i] = locationProposal;
+                break;
+            }    
+        }
     }
     void CreatePath()
     {
