@@ -2,12 +2,16 @@ using UnityEngine;
 
 public class Soldier : MonoBehaviour
 {
-    public static short HP;
+    public static short hp;
     public static short attackDamage;
     public static short moveSpeed;
     public static short attackSpeed;
     public static bool isAttacking;
 
+    public short GetHealth()
+    {
+        return hp;
+    }
 
     void Start()
     {
