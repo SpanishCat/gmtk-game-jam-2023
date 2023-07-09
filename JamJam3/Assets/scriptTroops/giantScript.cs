@@ -10,7 +10,7 @@ public class giantScript : soldierScript
     {
       if(gameObject.name == "5Giants")
         {
-            Damage = Damage * 1.4f;
+            attackDamage = attackDamage * 1.4f;
         }
     }
 
