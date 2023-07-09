@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6961263986338149941}
   - component: {fileID: 2321071469671254533}
   - component: {fileID: 8674197906755168878}
+  - component: {fileID: -6250312840560941516}
   m_Layer: 0
   m_Name: 100Soldier
   m_TagString: Shootable
@@ -97,8 +98,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09bbbe7975faef54a8473203e607681c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
-  Damage: 0
-  moveSpeed: 0
-  attackSpeed: 0
-  isAttacking: 0
+--- !u!114 &-6250312840560941516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284624114805211102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f621ae68460381e488a90169f2c85216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10

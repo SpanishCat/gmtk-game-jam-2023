@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4034133383307376563}
   - component: {fileID: 5190339640632335535}
   - component: {fileID: -1501729921347753847}
+  - component: {fileID: 812575024120345739}
   m_Layer: 0
   m_Name: oneSoldier
   m_TagString: Shootable
@@ -97,7 +98,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09bbbe7975faef54a8473203e607681c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 4
-  Damage: 1
-  moveSpeed: 1
-  attackSpeed: 1
+--- !u!114 &812575024120345739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5862194510333194876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f621ae68460381e488a90169f2c85216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10

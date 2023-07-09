@@ -45,11 +45,15 @@ public class ButtonFunctions : MonoBehaviour
             SetTarget("Finishline");
     }
 
+    public Transform startStone;
+
     public void SendTroops()
     {
-        Debug.Log("Sending " + amount + 
-            " " + type.name + 
-            "s for target: " + target);
-        //Instantiate(type, )
+        //Debug.Log("Sending " + 
+        //    " " + type.name + 
+        //    "s for target: " + target);
+        Instantiate(type,
+            new Vector3(startStone.position.x, startStone.position.y, -0.7f),
+            startStone.rotation);
     }
 }
