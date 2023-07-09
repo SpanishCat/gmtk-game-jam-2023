@@ -25,7 +25,7 @@ public class counter : MonoBehaviour
     void Update()
     {
         GameObject[] targetsOnMap = GameObject.FindGameObjectsWithTag("Shootable");
-        if (GetComponentInChildren<Collider2D>() !=null ) 
+        if (GetComponentInChildren<CircleCollider2D>() !=null ) 
         { 
             flagger = true;
         }
