@@ -5,25 +5,15 @@ public abstract class Tower : MonoBehaviour, ITower
     public /*readonly*/ short maxHealth;
     public /*readonly*/ float cooldownSeconds;
     public short health;
+    public short damage = 1;
     public float range = 5;
+    public const float bulletSpeed = 10;
 
-    //public Tower(short inMaxHealth, float inCooldown = 0)
-    //{
-    //    maxHealth = inMaxHealth;
-    //    cooldownSeconds = inCooldown;
-    //    health = maxHealth;
-
-    //    Debug.Log("Max health: " + maxHealth);
-    //}
 
     void Update()
     {
         Debug.Log(maxHealth);
     }
-
-    // Abstracts
-    public abstract void Attack();
-    public abstract void Die();
 
     public void Regen()
     {
@@ -43,4 +33,9 @@ public abstract class Tower : MonoBehaviour, ITower
 
         return health;
     }
+
+
+    // Abstracts
+    public abstract void Attack();
+    public abstract void Die();
 }

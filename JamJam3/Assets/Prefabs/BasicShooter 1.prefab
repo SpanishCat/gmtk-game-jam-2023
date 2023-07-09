@@ -249,5 +249,6 @@ MonoBehaviour:
   maxHealth: 0
   cooldownSeconds: 0
   health: 0
+  damage: 1
   range: 5
-  bulletPrefab: {fileID: 3324022481763616393, guid: ccdf80edb3e79d84ca26e3ba977d974c, type: 3}
+  bulletPrefab: {fileID: 4299778670760761997, guid: 1d5c814ef795fa84c92ff2660666dd5a, type: 3}

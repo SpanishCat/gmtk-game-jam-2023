@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class BasicShooter : Tower
 {
-    // Projectile
-    public const float bulletSpeed = 10f;
-
-    Transform shooter;
     public GameObject bulletPrefab;
+
+    // Auto
+    float timeSinceLastAttack = 0;
+    Transform shooter;
     GameObject currentTarget;
 
     void Start()
@@ -22,37 +22,32 @@ public class BasicShooter : Tower
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S)) { Attack(); }
-        if (Input.GetKeyDown(KeyCode.D)) { Damage(1000); }
-        if (Input.GetKeyDown(KeyCode.R)) { Regen(); }
-        if (Input.GetKeyDown(KeyCode.H)) { Debug.Log(GetHealth()); }
+        timeSinceLastAttack += Time.deltaTime;
 
         GameObject[] targetsOnMap = GameObject.FindGameObjectsWithTag("Shootable");
 
-        if (true/*currentTarget == null || Vector2.Distance(shooter.position, currentTarget.transform.position) > range*/)
+        // Check when to attack
+        if (timeSinceLastAttack >= cooldownSeconds)
         {
+            timeSinceLastAttack = 0;
+
             foreach (GameObject target_ in targetsOnMap)
             {
-                if (Vector2.Distance(shooter.position, target_.transform.position) <= range) 
-                { 
+                if (Vector2.Distance(shooter.position, target_.transform.position) <= range)
+                {
                     currentTarget = target_;
                     Attack();
                     break;
                 }
             }
-            
-        }
 
-        else if (Vector2.Distance(shooter.position, currentTarget.transform.position) <= range) 
-        { Attack(); }
+        }
     }
 
 
     // Overrides
     public override void Attack()
     {
-        Debug.Log("Shooter is attacking");
-
         Vector2 targetPos = currentTarget.transform.position;
         Vector2 shooterPos = shooter.position;
         Vector2 difference = targetPos - shooterPos;
@@ -60,7 +55,7 @@ public class BasicShooter : Tower
         float distance = difference.magnitude;
         Vector2 direction = difference / distance;
         direction.Normalize();
-        StartCoroutine("ShootAndWaitCooldown", direction);
+        FireBullet(direction);
     }
 
     private void FireBullet(Vector2 directions)
@@ -71,16 +66,6 @@ public class BasicShooter : Tower
 
     public override void Die()
     {
-        Debug.Log("Tower died alone!");
         Destroy(this.gameObject);
     }
-
-    IEnumerator ShootAndWaitCooldown(Vector2 directions)
-    {
-        FireBullet(directions);
-        yield return new WaitForSeconds(cooldownSeconds);
-    }
-
-
-
 }
